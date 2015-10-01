@@ -24,11 +24,11 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Sample {et~al.}} %use et al only if is more than 1 author
-\def\Authors{First Author\,$^{1,*}$, Co-Author\,$^{2}$ and Co-Author\,$^2$}
+\def\Authors{Jan Stebetak\,$^{1,*}$, Roman Moucek\,$^{2}$}
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
-\def\Address{$^{1}$Laboratory X, Institute X, Department X, Organization X, City X , State XX (only USA, Canada and Australia), Country X \\
-$^{2}$Laboratory X, Institute X, Department X, Organization X, City X , State XX (only USA, Canada and Australia), Country X  }
+\def\Address{$^{1}$University of West Bohemia, Department of Computer Science and Engineering, Pilsen, Czech Republic. \\
+$^{2}$NTIS }
 % The Corresponding Author should be marked with an asterisk
 % Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
 \def\corrAuthor{Corresponding Author}
@@ -42,7 +42,7 @@ $^{2}$Laboratory X, Institute X, Department X, Organization X, City X , State XX
 \onecolumn
 \firstpage{1}
 
-\title[New Title]{Article Title} 
+\title[Sharing of Analytic Methods in Electrophysiology to Applications by Third Parties]{Sharing of Analytic Methods in Electrophysiology to Applications by Third Parties} 
 
 \author[\firstAuthorLast ]{\Authors} %This field will be automatically populated
 \address{} %This field will be automatically populated
@@ -74,11 +74,11 @@ $^{2}$Laboratory X, Institute X, Department X, Organization X, City X , State XX
 %%% Leave the Abstract empty if your article falls under any of the following categories: Editorial Book Review, Commentary, Field Grand Challenge, Opinion or specialty Grand Challenge.
 \section{}
 %As a primary goal, the abstract should render the general significance and conceptual advance of the work clearly accessible to a broad readership. References should not be cited in the abstract.
-For full guidelines regarding your manuscript please refer to \href{http://www.frontiersin.org/about/AuthorGuidelines}{Author Guidelines} \\ or \textbf{Table \ref{Tab:01}} for a summary according to article type.
+Neuroinformatics laboratories produce a lot of experimental data, which have to be stored and further processed. Storing and sharing data among laboratories is usual; however, sharing analytic methods is still not satisfactorily solved. The methods are usually accessible for users only via web browsers or downloadable and locally installable applications (e.g. EEGLAB). This paper presents a new approach of sharing analytic methods in the electrophysiology domain consisting in implementation of methods as Web Services. The proposed approach allows sharing of methods to third parties by integration the Web Services client into another application. The results demonstrate the implementation of this sharing technique to the EEG Data processor and the integration of methods into the EEG/ERP Portal.
 
 
 \tiny
- \keyFont{ \section{Keywords:} Text Text Text Text Text Text Text Text } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+ \keyFont{ \section{Keywords:} Electroencephalography; Event-related potential; Analytic methods; Signal processing; Web Services; Sharing } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
 \section{Introduction}
@@ -87,170 +87,195 @@ For full guidelines regarding your manuscript please refer to \href{http://www.f
 %
 % For Clinical Case Studies the Introduction should include symptoms at presentation, physical exams and lab results.
 %
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text. Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text. Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text.Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text.
+Our research group specializes in the research of brain activity. The experiments in this area of research usually take long time and produce a lot of data. To analyse this data, we widely use the methods of electroencephalography (EEG) and event related potentials (ERP). The analytic methods that we use are presented.
+
+Sharing experimental data or algorithms is very helpful for scientific community. They are not required to collect data or develop their own analytic methods. However, lack of standardized data format for shared data causes possible misinterpretation. To reduce the danger of misinterpretation, data must be very well documented by suitable metadata \cite{Tetters08}. As members of the Czech National Node of International Neuroinformatics Coordinating Facility (INCF) \cite{INCF} we defined and developed an EEG/ERP metadata description of electrophysiology experiments. Our efforts resulted in a custom solution – the EEG/ERP Portal \cite{Jezek10}. We also focused on design and implementation of analytic algorithms. We developed an analytic tools management system – the EEG Data Processor \cite{Jezek13}.
+
+Currently, analytic methods are usually stored within a software infrastructure or a portal solution (as presented in the State of the Art). Scientists are able to use these methods via web user interface or download as an application and install it locally. The main disadvantage is a necessity of uploading data into a portal. There are also difficulties with the integration of methods into a different, third-party application. In this paper, we present a new approach of sharing methods in the electrophysiology domain with applications developed by third parties. The presented solution allows users integration of the analytic methods of the EEG Data Processor (where the proposed approach is implemented) into other applications and run them remotely.
+
+This paper discusses the importance of sharing methods for the scientific community. It brings a brief introduction to existing neuroinformatics infrastructures allowing storing and sharing data and using analytic methods. It also discusses their approach of sharing data and methods. The next section describes the approach of sharing the analytic methods with third parties and its implementation. The last section of the paper shows the integration of the EEG Data Processor methods into the EEG/ERP Portal that serves as a data management application. This integration allows users of the EEG/ERP Portal executing the methods directly in the Portal where their experimental data are stored. They do not have to download their data from the Portal and upload it to the EEG Data Processor \cite{Jezek13} (see the Section 2.2).
 
 %\begin{methods}
 \section{Material \& Methods}
 
-Text Text Text Text Text Text  Text Text Text Text Text Text \cite{conference} Text Text Text  Text Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text  Text Text.  \cite{patent} might want to know about  text text text text Text Text Text Text  Text Text Text Text Text Text  Text Text. \citep{article} might want to know about  text text text text
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text  Text Text.  \cite{book} might want to know about  text text text text \cite{chapter}
+This section discusses the importance of analytic tools and data sharing for scientific community. It also briefly presents existing neuroinformatics infrastructures and applications allowing sharing data and/or analytic methods. Then, the EEG Data Processor is presented. Finally, the proposed third-party sharing approach is presented. 
+\cite{chapter}
+
+
+
+%Please note that large tables covering several pages cannot be included in the %final PDF for formatting reasons. These tables will be published as supplementary %material on the online article abstract page at the time of acceptance. The %author will notified during the typesetting of the final article if this is the %case. A link in the final PDF will direct to the online material.
+
+\subsection{State of the Art}
+There is a growing community of theorists in neuroscience who are trained in analytic methods but that had no direct access to experimental data. Therefore, they created mathematical models that were not guided by data and often only of limited relevance to neuroscience. Data sharing allowed theorists testing developed methods on real data \cite{Tetters08}. There is also a community of experimentalists that obtain data but have limited access to analytic methods. Sharing of methods allows them analysing and validating their data. The following paragraphs bring an overview of existing contributions to providing and sharing experimental data and/or analytic methods.
+
+The CARMEN Portal \cite{Watson07} (Code Analysis, Repository \& Modelling for e-Neuroscience) developed by the British National Node allows neuroscientists to save and share experimental data and services. CARMEN provides storage of services. Collaborators are able to upload and share experimental data, they also can upload their analytic tools as web services and share them. There are number of public services such as data filters, neural spike detection and spike sorting methods. All analytic tools are accessible for registered users via the CARMEN Portal. These tools can be run on the stored data that a user has access to. However, the services belong to owners that uploaded them to the CARMEN. When a scientist wants to use a CARMEN service anywhere else, he/she has to contact an owner of the service.
+
+The Galaxy project [] is an open source workflows engine. A registered user is able to use methods and workflow tools provided by this system. Galaxy is focused on genome analysis; therefore, this system contains methods suitable for genome analysis. Registered users are not allowed to add their own methods, only administrators or developers can. The methods are well described for the users with description of parameters and examples. Theoretically, the implementation of methods as Web Services enables remote integration. Currently, there is no support for remote methods calling by external applications.
+
+Modular Toolkit for Data Processing (MDP) (Zito et al., 2008) is a data processing framework used for scientific data processing development. From the user’s perspective, MDP consists of a collection of supervised and unsupervised learning algorithms e.g. Principal Component Analysis, several Independent Component Analysis algorithms (CuBICA, FastICA, TDSEP, and JADE), Locally Linear Embedding. It also allows creating and executing processing flows. MDP is a modular framework written in Python that programmers can extend by additional modules \cite{MDP12}. Common users can call implemented modules locally.
+
+EEGLAB [6] is a toolbox with graphic user interface for EEG signal analysis. Data are imported via GUI from local storage e.g. hard disc or USB devices. Available functions include EEG data, channel and event information importing, data visualization (scrolling, scalp map and dipole model plotting, plus multi-trial ERP-image plots), preprocessing (including artifact rejection, filtering, epoch selection, and averaging), Independent Component Analysis (ICA) and time-frequency decompositions. A 'plug-in' facility allows easy incorporation of new EEG modules into the main menu. EEGLAB is written in MatLab and is freely available (http://www.sccn.ucsd.edu/eeglab/) under the GNU public license for non-commercial use and open source development, together with sample data, user tutorial and extensive documentation.
+
+A novel software and hardware infrastructure developed by the German Neuroinformatics Node (G-Node) [19, 20] eases the acquisition, storage and analysis of experimental data. G-Node provides various services and tools to facilitate data access and data management (Neuroshare [22] to HDF5 converter, etc.). They have been developing a Rest API to enable easy access to shared data from different applications [21]. The G-Node focuses on cellular and systems neurophysiology. The G-Node portal is open source; the source code including analytic tools is available on GitHub: https://github.com/G-Node.
+
+Taverna [] is an open source domain independent scientific workflow management application that allows designing, sharing and executing workflows. Taverna has been created by the myGrid project []. It allows users to integrate many different software component, including SOAP or Rest web services, or command tools. Taverna can access a large number of services in the fields of bioinformatics, astronomy, chemoinformatics, health informatics and others. A Suite of tools include: a Taverna Workbench (toolbox with GUI for local installation), Taverna Online web based tool for authoring workflows; Taverna Server and client that allows Taverna workflows to be run on other machines.
 
 \begin{table}[!t]
-\textbf{\refstepcounter{table}\label{Tab:01} Table \arabic{table}.}{ Maximum size of the Manuscript }
+\textbf{\refstepcounter{table}\label{Tab:01} Table \arabic{table}.}{ Summary of infrastructures and method providers }
 
 \processtable{ }
 {\begin{tabular}{lllll}\toprule
- & Abstract max. legth (incl. spaces) & Figures or tables & Manuscript max. length \\\midrule
-Clinical Case Study & & & &\\
-Clinical Trial & & & &\\
-Hypothesis and Theory & & & &\\
-Methods & 2000 characters  & 15 & 12000 words \\
-Original Research & & & &\\
-Review & & & &\\
-Technology Report & & & &\\\midrule
-Focused Review & 2000 characters & 5 & 5000 words \\\midrule
-CPC &  1250 characters& 6 & 2500 words  \\\midrule
-Perspective & 1250 characters & 2 & 3000 words  \\
-Mini Review & & & &\\\midrule
-Data Report & None & 2 & 3000 words\\\midrule
-Classification & 1250 characters & 10 & 2000 words \\\midrule
-Editorial & None & None & 1000 words  \\\midrule
-Frontiers Commentary  & & &\\
-General Commentary & None & 1 & 1000 words\\
-Book review & & & \\\midrule
-Opinion   & & &\\
-Specialty Grand Challenge & None & 1 & 2000 words\\
-Field Grand Challenge & & & &\\\botrule
+ & Type & Data Sharing & Sharing Methods & Integration to third parties \\\midrule
+
+CARMEN & Web portal & YES & Via web portal & Contact owner\\\midrule
+Galaxy &  Web portal & YES & Via web portal & Not supported (enabled by used technology)\\\midrule
+MDP & Framework & NO & Download and import & NO\\\midrule
+EEGLab & Stand-alone system & NO & Download and install & NO\\\midrule
+G-Node & Web portal & YES & Via web portal & NO\\\midrule
+Taverna & Set of applications & NO & Download with applications & Not supported\\\botrule
 \end{tabular}}{}
 \end{table}
 
-Please note that large tables covering several pages cannot be included in the final PDF for formatting reasons. These tables will be published as supplementary material on the online article abstract page at the time of acceptance. The author will notified during the typesetting of the final article if this is the case. A link in the final PDF will direct to the online material.
+The overview in Table 1 shows ability to share methods to end users (using them via web portal or installing a stand-alone system including methods on a custom machine). However, it also shows lack of support for integration of methods in external applications developed by third parties. Therefore, we present such approach of sharing methods that supports the mentioned integration.
 
-\subsection{Original Research Articles, Clinical Trial Articles, and Technology Reports}
+\subsection{EEG Data Processor}
 
-For Original Research Articles, Clinical Trial Articles, and Technology Reports the section headings should be those appropriate for your field and the research itself. It is recommended to organize your manuscript in the following sections or their equivalents for your field:
+EEG Data Processor \cite{Jezek13} is a custom system developed by ours research group that enables running of signal processing methods. We use the following methods for EEG/ERP signal analysis: Matching Pursuit \cite{Vareka12}, Discrete and Continuous Wavelet transform \cite{Ciniburk10}, FastICA \cite{Hyv01} and Fast Fourier transform \cite{FFT}. Since this system is a web based application, it does not need any installation, only web browser. It enables users upload and analyse data, then download results. The methods are stored locally in the file system of the server. Each method is a plug-in (a JAR file) and is called by an external method invoker. The source code of the EEG Data Processor and the analytic methods is open source and freely available to download from the SourceForge repository (https://sourceforge.net/projects/eegprocessor/). Note that the EEG Data Processor is not developed for storing data. It stores it only temporarily. The following paragraphs include technical information about the EEG Data Processor.
 
-\begin{itemize}
-%for bulleted list, use itemize
-\item Introduction: Succinct, with no subheadings.
-\item Materials and Methods: This section may be divided by subheadings. This section should contain sufficient detail so that when read in conjunction with cited references, all procedures can be repeated.
-\item Results: This section may be divided by subheadings. Footnotes should not be used and have to be transferred into the main text.
-\item Discussion: This section may be divided by subheadings. Discussions should cover the key findings of the study: discuss any prior art related to the subject so to place the novelty of the discovery in the appropriate context; discuss the potential short-comings and limitations on their interpretations; discuss their integration into the current understanding of the problem and how this advances the current views; speculate on the future direction of the research and freely postulate theories that could be tested in the future.
-\end{itemize}
+The system is a layered architecture. This architectural style is supported by used programming languages and technologies (Java, Maven, Spring, Hibernate, Apache CXF Web services etc.) \cite{Jezek13}.
 
-Please note that the Material and Methods section can be placed in any of the following ways: before Results, before Discussion or after Discussion.
+\subsection{Third-Party Sharing Approach}
 
-\subsection{Clinical Case Studies}
+The possibility to share analytic methods is important as well as possibility to share experimental data. Sharing of analytic methods improves the efficiency of scientific work. Scientists can use published tools e.g. EEGLab or use already implemented methods.
 
-For Clinical Case Studies the following sections are mandatory:
+In this paper, we present an extension of the EEG Data Processor that allows sharing analytic methods by third-party applications.
+The presented concept of sharing methods consists in registration of applications developed and run by third parties into the EEG Data Processor. When an application is registered and accepted by the administrator of the EEG Data Processor, the application is able to use methods provided by the Processor. Figure 1 shows the communication between the EEG Data Processor and a client application.
 
-\begin{itemize}
-%for bulleted list, use itemize
-\item Introduction: Include symptoms at presentation, physical exams and lab results.
-\item Background: This section may be divided by subheadings. Include history and review of similar cases.
-\item Results: This section may be divided by subheadings. Include diagnosis and treatment.
-\item Concluding Remarks
-\end{itemize}
+The main idea of sharing the methods provided by the EEG Data Processor is to allow using them directly in other applications. This approach removes the necessity of manually data transfer from the data storage to the EEG Data Processor. Since the methods are available and runnable from client applications where data are stored, the data transfer is performed automatically. The proposed approach also solves the difficulties with downloading and updating methods. Since the methods are accessed remotely, there is no need to download or update them manually.
 
-%\end{methods}
-
-
+This solution also provides an opportunity to call shared methods remotely from different applications independently of programming language. The type of a client application (web or desktop application) is also not relevant. For successful integration, the internet connection and the implemented client for remote methods call are required.
 
 \section{Results}
 
-\subsection{Figures}
-Frontiers requires figures to be submitted individually, in the same order as they are referred to in the manuscript. Figures will then be automatically embedded at the bottom of the submitted manuscript. Kindly ensure that each table and figure is mentioned in the text and in numerical order. Permission must be obtained for use of copyrighted material from other sources (including the web). Please note that it is compulsory to follow figure instructions. Figures which are not according to the guidelines will cause substantial delay during the production process.
+\subsection{Third-Party Sharing Implementation}
 
+This section presents the third-party sharing technique and its implementation in the EEG Data Processor. Since we use the Web Services technology for the implementation, this section also provides its brief description. We propose the third-party sharing mechanism implemented in the EEG Data Processor that extends the common sharing of methods and enables integration of the provided methods to other applications and using them there.
 
-\begin{table}[!t]
-\textbf{\refstepcounter{table}\label{Tab:02} Table \arabic{table}.}{ Resolution Requirements for the figures}
+The proposed approach of sharing methods is based on Remote Procedure Call technique (RPC). RPC is widely used for constructing distributed, client-server based applications. A client application calls a remote procedure (method), transfers data to a server application, and waits for a result. For web applications Web Services technology \cite{Liu06} is used. For implementation of this approach, the SOAP Web Services technology is used. SOAP Web Services \cite{Liu06} use XML messages, HTTP protocol, and XML Namespaces for objects identification.
 
-\processtable{}
-{\begin{tabular}{lllll}\toprule
-Image Type & Description & Format & Color Mode & Resolution\\\midrule
-Line Art & An image composed of lines and text,  & TIFF, JPEG & RGB, Bitmap & 900 - 1200 dpi\\
-           & which does not contain tonal or shaded areas.& & &\\
-           Halftone & A continuous tone photograph, which contains no text. & TIFF, EPS, JPEG & RGB, Grayscale & 300 dpi\\
-Combination & Image contains halftone + text or line art elements. & TIFF, JPEG & RGB,Grayscale & 600 - 900 dpi\\\botrule
-\end{tabular}}{}
-\end{table}
+The Simple Object Access Protocol (SOAP) is a lightweight, XML-based protocol for exchanging information in a decentralized, distributed environment. SOAP-based requests and responses are combined with a transport protocol, such as HTTP \cite{WS}. The main advantage of SOAP is protocol, language, and platform independence \cite{WS}.
+The Remote Procedure Call technique is used in the EEG Data Processor for third-party sharing of the analytic methods. The EEG Data Processor provides a following set of features.
 
-\textbf{Table \ref{Tab:02}} shows the resolution requirements for the figures. The figures must be legible:
-\begin{enumerate}
-\item The smallest visible text is no less than 8 points in height, when viewed at actual size.
-\item Solid lines are not broken up.
-\item Image areas are not pixelated or stair stepped.
-\item Text is legible and of high quality.
-\item Any lines in the graphic are no smaller than 2 points width.
-\item The actual size of the figure must be of at least 8.5 cm.
-\end{enumerate}
-
-\subsection{Nomenclature}
 \begin{itemize}
-\item The use of abbreviations should be kept to a minimum. Non-standard abbreviations should be avoided unless they appear at least four times, and defined upon first use in the main text. Consider also giving a list of non-standard abbreviations at the end, immediately before the Acknowledgments.
-\item Gene symbols should be italicized; protein products are not italicized.
-\item Chemical compounds and biomolecules should be referred to using systematic nomenclature, preferably using the recommendations by IUPAC.
-\item We encourage the use of Standard International Units in all manuscripts.
-\item To take part in the Resource Identification Initiative, please cite antibodies, genetically modified organisms, software tools, data, databases and services using the corresponding catalog number and RRID in your current manuscript. For more information about the project and for steps on how to search for an RRID, please click \href{http://www.frontiersin.org/files/pdf/letter_to_author.pdf}{here}.
+\item List of available methods – This method returns the list of available signal processing method provided by the EEG Data Processor.
+\item List of parameters of chosen method – It returns required parameters of selected method with data type and restrictions (possible values etc.).
+\item Running the selected method – Result of selected analytic method is provided in XML format.
+\item Number of available threads – It returns information about available processing threads. If there is no available thread, a request is put into a queue.
+
 \end{itemize}
 
-\begin{equation}
-\sum x+ y =Z\label{eq:01}
-\end{equation}
+\subsection{Registration}
+
+When users want to use the EEG Data Processor, they also have to register first by filling the simple registration form (including full name of user, his/her email and password). The successful registration grants access to the EEG Data Processor and its analytic methods to users.
+
+In case of any uncommon or violent behaviour of a registered user, administrators of the Processor are able to block the user.
+
+As we mentioned before, we implemented the third-party sharing mechanism allowing using presented methods in other applications. A registered user is able to register his/her application via registration form (Figure 2). The fields name of application and password will be used as credentials for the Web Services client. The site URL field is used for checking a newly registered application by the EEG Data Processor administrators. There are defined several statuses for applications.
+
+\begin{itemize}
+\item Pending – It is a status for newly registered application before review. This application is not able to use the analytic methods.
+\item Rejected – The registered application is rejected by a reviewer.
+\item Confirmed – The registered application is accepted by a reviewer and is able to use the analytic methods.
+\item Blocked – administrators of the EEG Data Processor are able to block an application when any uncommon or violent behaviour is discovered.
+
+\end{itemize}
+
+Administrators are able to change a status of an application via administration of applications interface (Figure 3). Confirmed applications are able to integrate the analytic methods by implementation of a Web Services client. The EEG Data Processor serves as a Web Services server.
+
+\subsection{Integration with the EEG/ERP Portal}
+
+This section describes integration of the analytic methods provided by the EEG Data Processor into the EEG/ERP Portal. It mainly provides the technical information about used technology and the implementation of Web Services in the EEG Data Processor and the WS client in the EEG/ERP Portal. The EEG/ERP Portal is already registered in the Processor and confirmed.
+
+The EEG/ERP Portal has been developed by our research group \cite{Jezek10}. This portal enables research groups to store, manage and download their experimental data and metadata. The portal is developed as a standalone product running on servers in our department. The usage of the Portal does not require any special software installation, only a web browser.
+
+Apache CXF [14] is an open source services framework that makes web service development easy, simplified, and standard based. This technology is used for client-server based integration of web applications. The client application will prepare an order and send it to the EEG Data Processor through a business method call. For implementation we use code-first approach. It includes three following steps:
+
+\begin{itemize}
+\item Create a Service Endpoint Interface (SEI) and define a business method to be used with the web service.
+\item Create the implementation class and annotate it as a web service.
+\item Create an xml configuration of the service class and an instance of the class using JAX-WS frontend.
+
+\end{itemize}
+
+We have created the Service Endpoint Interface with defined methods allowing accessing and running analytic methods, which the EEG Data Processor provides. This interface is given below.
+
+\begin{small}
+\begin{verbatim}
+@WebService
+@Secured("ROLE_APP")
+public interface ProcessService{
+/**
+* Getter of available algorithm names.
+* @return algorithm names
+*/
+public String[] getAvailableMethods();
+/**
+* Returns number of currently available processing units.
+* @return available processing units
+*/
+public int availableProcessingUnits();
+/**
+* Getter of parameters necessary for method to run.
+* @param fileFormat supported file format
+* @param methodName name of desired process method
+* @return array of parameters of chosen method
+*/
+public MethodParameters[] getMethodParameters(SupportedFormat fileFormat, 
+String methodName);
+/**
+* Returns byte array of processed data
+* (will be replaced by output format in time)
+* @param data files to be processed
+* @param fileFormat one of supported file formats
+* @param algorithmName name of processing algorithm
+* @param params other parameters
+* @return bytes of processed data
+*/
+public byte[] processData(DataFile[] data, SupportedFormat fileFormat, 
+String methodName, String[] params);
+}
+\end{verbatim}
+\end{small}
+
+For integration of the service into a client application (e.g. the EEG/ERP Portal), it is necessary to configure the Web Services client. The client configuration in the EEG/ERP Portal using the Apache CXF is given below. Id specifies a unique identifier for the client instance. Address specifies the URL address where the endpoint of the service is published. ServiceClass specifies the interface of the service in the client application. In the EEG/ERP Portal, we used the Apache CXF for generating necessary files for the client implementation from the description file .wsdl.
+
+\begin{small}
+\begin{verbatim}
+<jaxws:client id="eegService" address="http://147.228.63.134:8080/
+eegdataprocessor/webservice/ webservice/processService"
+serviceClass="cz.zcu.kiv.eegdatabase.webservices.EDPClient.ProcessService"
+username="EEGBase"
+password="***********" />
+\end{verbatim}
+\end{small}
+
+When the client is configured, the interface shown above is available to use in the client application. In the EEG/ERP Portal, we use it as follows: The getAvailableMethods gets all available methods from the EEG Data Processor. Then a user selects method and data. The required parameters of the selected method are obtained by getMethodParameters method. When all parameters are filled, the method processData starts data processing.
+
+For users of the EEG/ERP Portal, we have prepared a web interface, where he/she select an experiment including data and chooses services option. The EEG/ERP Portal displays available methods and data (Figure 4). The next web page includes form where a user fills parameters of selected method. The Run button starts the processing. The EEG/ERP Portal waits for processing result on background, so a user can continue to work. When finished, the processing result is stored as XML file into the database for further using. A user can obtain results using Services Results button in Experiment section (Figure 5).
 
 \section{Discussion}
 
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text.
-Additional Requirements:
-\subsection{Corrections}
+This paper summarizes basic approaches of sharing analytic methods. The common approach is to publish methods via a portal or a web interface. Users upload data on the server and are able to use a method. We extended this approach by allowing third-party sharing of our methods.
 
-If you need to communicate important changes to a published article please submit a General Commentary. Submit the article with the title “Corrigendum: Original Title of Article”.
+We implemented our methods as web services via Web Services technology. Then we published the web services description file (.wsdl). Once a user registers his/her application in the EEG Data Processor, the methods can be integrated into this application. The methods are still accessible via the web interface for registered users.
 
-\subsection{Commentaries on Articles}
+Since the wsdl description file and also communication between client and server are based on XML language, the Web services technology brings the language independency. Methods and also the EEG Data Processor are implemented in the Java language; however, client applications can be implemented in different programming language.
 
-At the beginning of your Commentary, please provide the citation of the article commented on. Rebuttals may be submitted in response to Commentaries; our limit in place is one commentary and one response. Rebuttals should also be submitted as General Commentary articles.
+The main disadvantage of this approach is the necessity to modify the client application. Developers have to create the WS client and put it into the application. However, there are possibilities to generate the WS client automatically from the wsdl file. The widely used tools are wsdl2Java [], Web Services Description Language Tool for Java or C\#, or SOAPy for Python. When a client is implemented, it automatically reacts on changing (adding, editing, or removing) methods in the EEG Data Processor.
 
-\subsection{Human Search and Animal Research}
+We successfully integrated the methods from the EEG Data Processor into the EEG/ERP Portal. This integration allows us using the methods directly in the Portal. This integration is described in Section 3.3.
 
-All experiments on live vertebrates or higher invertebrates must be performed in accordance with relevant institutional and national guidelines and regulations. In the manuscript, authors must identify the committee approving the experiments and must confirm that all experiments conform to the relevant regulatory standards. For manuscripts reporting experiments on human subjects, authors must identify the committee approving the experiments and must also include a statement confirming that informed consent was obtained from all subjects. In Original Research Articles and Clinical Trial Articles these statements should appear in the Materials and Methods section.
-
-\subsection{Clinical Trial Registration}
-
-Clinical trials should be registered in a public trials registry in order to become the object of a publication at Frontiers. Trials must be registered at or before the start of patient enrollment. A clinical trial is defined as "any research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes."(\href{www.who.int/ictrp/en}{www.who.int/ictrp/en}). A list of acceptable registries can be found at \href{www.who.int/ictrp/en}{www.who.int/ictrp/en} and \href{www.icmje.org}{www.icmje.org}.
-
-\subsection{Inclusion of Proteomics Data}
-
-Authors should provide relevant information relating to how the peptide/protein matches were undertaken, including methods used to process and analyze data, false discovery rates (FDR) for large-scale studies and threshold or cut-off rates for peptide and protein matches. Further information could include software used, mass spectrometer type, sequence database and version, number of sequences in database, processing methods, mass tolerances used for matching, variable/fixed modifications, allowable missed cleavages, etc.
-
-Authors should provide as supplementary material information used to identify proteins and/or peptides. This should include information such as accession numbers, observed mass (m/z), charge, delta mass, matched mass, peptide/protein scores, peptide modification, miscleavages, peptide sequence, match rank, matched species (for cross species matching), number of peptide matches, ambiguous protein/peptide matches should be indicated, etc.
-For quantitative proteomics analyses authors should provide information to justify the statistical significance including biological replicates, statistical methods, estimates of uncertainty and the methods used for calculating error.
-
-For peptide matches with biologically relevant post-translational modifications (PTM) and for any protein match that has occurred using a single mass spectrum, authors should include this information as raw data, annotated spectra or submit data to an online repository (recommended option).
-Authors are encouraged to submit raw or matched data and 2-DE images to public proteomics repositories. Submission codes and/or links to data should be provided within the manuscript.
-
-\subsection{Data Sharing}
-
-Frontiers supports the policy of data sharing, and authors are advised to make freely available any materials and information described in their article, and any data relevant to the article (while not compromising confidentiality in the context of human-subject research) that may be reasonably requested by others for the purpose of academic and non-commercial research. In regards to deposition of data and data sharing through databases, Frontiers urges authors to comply with the current best practices within their discipline.
-
-\section*{Disclosure/Conflict-of-Interest Statement}
-%Frontiers follows the recommendations by the International Committee of Medical Journal Editors (http://www.icmje.org/ethical_4conflicts.html) which require that all financial, commercial or other relationships that might be perceived by the academic community as representing a potential conflict of interest must be disclosed. If no such relationship exists, authors will be asked to declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. When disclosing the potential conflict of interest, the authors need to address the following points:
-%•	Did you or your institution at any time receive payment or services from a third party for any aspect of the submitted work?
-%•	Please declare financial relationships with entities that could be perceived to influence, or that give the appearance of potentially influencing, what you wrote in the submitted work.
-%•	Please declare patents and copyrights, whether pending, issued, licensed and/or receiving royalties relevant to the work.
-%•	Please state other relationships or activities that readers could perceive to have influenced, or that give the appearance of potentially influencing, what you wrote in the submitted work.
-
-The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
-
-\section*{Author Contributions}
-%When determining authorship the following criteria should be observed:
-%•	Substantial contributions to the conception or design of the work; or the acquisition, analysis, or interpretation of data for the work; AND
-%•	Drafting the work or revising it critically for important intellectual content; AND
-%•	Final approval of the version to be published ; AND
-%•	Agreement to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.
-%Contributors who meet fewer than all 4 of the above criteria for authorship should not be listed as authors, but they should be acknowledged. (http://www.icmje.org/roles_a.html)
-
-The statement about the authors and contributors can be up to several sentences long, describing the tasks of individual authors referred to by their initials and should be included at the end of the manuscript before the References section.
-
+Currently, the EEG Data Processor allows addition of methods developed in Java language. Therefore, our future work includes the development of advanced plug-in engine for automatic addition of analytic methods in different programming languages (Java, Python, Matlab).
 
 \section*{Acknowledgments}
 Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text. Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text. 
@@ -258,15 +283,11 @@ Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Tex
 
 \textit{Funding\textcolon} Text Text Text Text Text Text  Text Text.
 
-\section*{Supplemental Data}
-Supplementary Material should be uploaded separately on submission, if there are Supplementary Figures, please include the caption in the same file as the figure. LaTeX Supplementary Material templates can be found in the Frontiers LaTeX folder
-
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text.
 
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} % for Science, Engineering and Humanities and Social Sciences articles, for Humanities and Social Sciences articles please include page numbers in the in-text citations
 %\bibliographystyle{frontiersinHLTH&FPHY} % for Health and Physics articles
-\bibliography{test}
+\bibliography{frontiers}
 
 %%% Upload the *bib file along with the *tex file and PDF on submission if the bibliography is not in the main *tex file
 

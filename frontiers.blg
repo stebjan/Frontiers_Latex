@@ -1,9 +1,98 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: frontiers.aux
 The style file: frontiersinSCNS_ENG_HUMS.bst
-Database file #1: test.bib
-I was expecting a `,' or a `}'---line 47 of file test.bib
- : 
- : year = "2013"
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-(There was 1 error message)
+Database file #1: frontiers.bib
+Warning--entry type for "INCF" isn't style-file defined
+--line 47 of file frontiers.bib
+Warning--entry type for "MDP12" isn't style-file defined
+--line 55 of file frontiers.bib
+Warning--entry type for "FFT" isn't style-file defined
+--line 63 of file frontiers.bib
+Warning--entry type for "WS" isn't style-file defined
+--line 71 of file frontiers.bib
+Name 1 in "Jezek P., Moucek R.," has a comma at the end for entry Jezek10
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Jezek P., Moucek R.," has a comma at the end for entry Jezek10
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Ciniburk J., Moucek R., Mautner P., Rondik T." for entry Ciniburk10
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Ciniburk J., Moucek R., Mautner P., Rondik T." for entry Ciniburk10
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Hyvarinen A., Karhunen J., and Oja E." has a comma at the end for entry Hyv01
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Hyvarinen A., Karhunen J., and Oja E." has a comma at the end for entry Hyv01
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Jie Liu, Er-peng Zhang, Jin-fen Xiong, and Zhi-yong Lv" has a comma at the end for entry Liu06
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Jie Liu, Er-peng Zhang, Jin-fen Xiong, and Zhi-yong Lv" has a comma at the end for entry Liu06
+while executing---line 1459 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Ciniburk J., Moucek R., Mautner P., Rondik T." for entry Ciniburk10
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Ciniburk J., Moucek R., Mautner P., Rondik T." for entry Ciniburk10
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Warning--empty pages in Ciniburk10
+Name 1 in "Hyvarinen A., Karhunen J., and Oja E." has a comma at the end for entry Hyv01
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Hyvarinen A., Karhunen J., and Oja E." has a comma at the end for entry Hyv01
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Warning--empty pages in Hyv01
+Name 1 in "Jezek P., Moucek R.," has a comma at the end for entry Jezek10
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Jezek P., Moucek R.," has a comma at the end for entry Jezek10
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Warning--empty pages in Jezek10
+Name 1 in "Jie Liu, Er-peng Zhang, Jin-fen Xiong, and Zhi-yong Lv" has a comma at the end for entry Liu06
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Name 1 in "Jie Liu, Er-peng Zhang, Jin-fen Xiong, and Zhi-yong Lv" has a comma at the end for entry Liu06
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Warning--empty pages in Liu06
+Warning--empty booktitle in Vareka12
+Warning--empty pages in Vareka12
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+Too many commas in name 1 of "Watson P., Jackson T., Pitsilis G., Gibso, F., Austin J., Fletcher M., Liang, B. and Lord P." for entry Watson07
+while executing---line 1559 of file frontiersinSCNS_ENG_HUMS.bst
+(There were 40 error messages)
