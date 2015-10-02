@@ -99,9 +99,6 @@ This paper discusses the importance of sharing methods for the scientific commun
 \section{Material \& Methods}
 
 This section discusses the importance of analytic tools and data sharing for scientific community. It also briefly presents existing neuroinformatics infrastructures and applications allowing sharing data and/or analytic methods. Then, the EEG Data Processor is presented. Finally, the proposed third-party sharing approach is presented. 
-\cite{chapter}
-
-
 
 %Please note that large tables covering several pages cannot be included in the %final PDF for formatting reasons. These tables will be published as supplementary %material on the online article abstract page at the time of acceptance. The %author will notified during the typesetting of the final article if this is the %case. A link in the final PDF will direct to the online material.
 
@@ -110,13 +107,13 @@ There is a growing community of theorists in neuroscience who are trained in ana
 
 The CARMEN Portal \cite{Watson07} (Code Analysis, Repository \& Modelling for e-Neuroscience) developed by the British National Node allows neuroscientists to save and share experimental data and services. CARMEN provides storage of services. Collaborators are able to upload and share experimental data, they also can upload their analytic tools as web services and share them. There are number of public services such as data filters, neural spike detection and spike sorting methods. All analytic tools are accessible for registered users via the CARMEN Portal. These tools can be run on the stored data that a user has access to. However, the services belong to owners that uploaded them to the CARMEN. When a scientist wants to use a CARMEN service anywhere else, he/she has to contact an owner of the service.
 
-The Galaxy project [] is an open source workflows engine. A registered user is able to use methods and workflow tools provided by this system. Galaxy is focused on genome analysis; therefore, this system contains methods suitable for genome analysis. Registered users are not allowed to add their own methods, only administrators or developers can. The methods are well described for the users with description of parameters and examples. Theoretically, the implementation of methods as Web Services enables remote integration. Currently, there is no support for remote methods calling by external applications.
+The Galaxy project \cite{goecks2010galaxy, blankenberg2010galaxy, giardine2005galaxy} is an open source workflows engine. A registered user is able to use methods and workflow tools provided by this system. Galaxy is focused on genome analysis; therefore, this system contains methods suitable for genome analysis. Registered users are not allowed to add their own methods, only administrators or developers can. The methods are well described for the users with description of parameters and examples. Theoretically, the implementation of methods as Web Services enables remote integration. Currently, there is no support for remote methods calling by external applications.
 
-Modular Toolkit for Data Processing (MDP) (Zito et al., 2008) is a data processing framework used for scientific data processing development. From the user’s perspective, MDP consists of a collection of supervised and unsupervised learning algorithms e.g. Principal Component Analysis, several Independent Component Analysis algorithms (CuBICA, FastICA, TDSEP, and JADE), Locally Linear Embedding. It also allows creating and executing processing flows. MDP is a modular framework written in Python that programmers can extend by additional modules \cite{MDP12}. Common users can call implemented modules locally.
+Modular Toolkit for Data Processing (MDP) \cite{Zito08} is a data processing framework used for scientific data processing development. From the user’s perspective, MDP consists of a collection of supervised and unsupervised learning algorithms e.g. Principal Component Analysis, several Independent Component Analysis algorithms (CuBICA, FastICA, TDSEP, and JADE), Locally Linear Embedding. It also allows creating and executing processing flows. MDP is a modular framework written in Python that programmers can extend by additional modules \cite{MDP12}. Common users can call implemented modules locally.
 
-EEGLAB [6] is a toolbox with graphic user interface for EEG signal analysis. Data are imported via GUI from local storage e.g. hard disc or USB devices. Available functions include EEG data, channel and event information importing, data visualization (scrolling, scalp map and dipole model plotting, plus multi-trial ERP-image plots), preprocessing (including artifact rejection, filtering, epoch selection, and averaging), Independent Component Analysis (ICA) and time-frequency decompositions. A 'plug-in' facility allows easy incorporation of new EEG modules into the main menu. EEGLAB is written in MatLab and is freely available (http://www.sccn.ucsd.edu/eeglab/) under the GNU public license for non-commercial use and open source development, together with sample data, user tutorial and extensive documentation.
+EEGLAB \cite{Delorme04} is a toolbox with graphic user interface for EEG signal analysis. Data are imported via GUI from local storage e.g. hard disc or USB devices. Available functions include EEG data, channel and event information importing, data visualization (scrolling, scalp map and dipole model plotting, plus multi-trial ERP-image plots), preprocessing (including artifact rejection, filtering, epoch selection, and averaging), Independent Component Analysis (ICA) and time-frequency decompositions. A 'plug-in' facility allows easy incorporation of new EEG modules into the main menu. EEGLAB is written in MatLab and is freely available (http://www.sccn.ucsd.edu/eeglab/) under the GNU public license for non-commercial use and open source development, together with sample data, user tutorial and extensive documentation.
 
-A novel software and hardware infrastructure developed by the German Neuroinformatics Node (G-Node) [19, 20] eases the acquisition, storage and analysis of experimental data. G-Node provides various services and tools to facilitate data access and data management (Neuroshare [22] to HDF5 converter, etc.). They have been developing a Rest API to enable easy access to shared data from different applications [21]. The G-Node focuses on cellular and systems neurophysiology. The G-Node portal is open source; the source code including analytic tools is available on GitHub: https://github.com/G-Node.
+A novel software and hardware infrastructure developed by the German Neuroinformatics Node (G-Node) \cite{Herz08, GNode} eases the acquisition, storage and analysis of experimental data. G-Node provides various services and tools to facilitate data access and data management (Neuroshare \cite{Neuroshare} to HDF5 converter, etc.). They have been developing a Rest API to enable easy access to shared data from different applications \cite{Sobolev14}. The G-Node focuses on cellular and systems neurophysiology. The G-Node portal is open source; the source code including analytic tools is available on GitHub: https://github.com/G-Node.
 
 Taverna [] is an open source domain independent scientific workflow management application that allows designing, sharing and executing workflows. Taverna has been created by the myGrid project []. It allows users to integrate many different software component, including SOAP or Rest web services, or command tools. Taverna can access a large number of services in the fields of bioinformatics, astronomy, chemoinformatics, health informatics and others. A Suite of tools include: a Taverna Workbench (toolbox with GUI for local installation), Taverna Online web based tool for authoring workflows; Taverna Server and client that allows Taverna workflows to be run on other machines.
 
@@ -151,6 +148,13 @@ The possibility to share analytic methods is important as well as possibility to
 In this paper, we present an extension of the EEG Data Processor that allows sharing analytic methods by third-party applications.
 The presented concept of sharing methods consists in registration of applications developed and run by third parties into the EEG Data Processor. When an application is registered and accepted by the administrator of the EEG Data Processor, the application is able to use methods provided by the Processor. Figure 1 shows the communication between the EEG Data Processor and a client application.
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=18cm]{methods}% This is an *.eps file
+\end{center}
+\textbf{\refstepcounter{figure}\label{fig:01} Figure \arabic{figure}.}{Communication between applications }
+\end{figure}
+
 The main idea of sharing the methods provided by the EEG Data Processor is to allow using them directly in other applications. This approach removes the necessity of manually data transfer from the data storage to the EEG Data Processor. Since the methods are available and runnable from client applications where data are stored, the data transfer is performed automatically. The proposed approach also solves the difficulties with downloading and updating methods. Since the methods are accessed remotely, there is no need to download or update them manually.
 
 This solution also provides an opportunity to call shared methods remotely from different applications independently of programming language. The type of a client application (web or desktop application) is also not relevant. For successful integration, the internet connection and the implemented client for remote methods call are required.
@@ -182,6 +186,13 @@ In case of any uncommon or violent behaviour of a registered user, administrator
 
 As we mentioned before, we implemented the third-party sharing mechanism allowing using presented methods in other applications. A registered user is able to register his/her application via registration form (Figure 2). The fields name of application and password will be used as credentials for the Web Services client. The site URL field is used for checking a newly registered application by the EEG Data Processor administrators. There are defined several statuses for applications.
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{edp01}% This is an *.eps file
+\end{center}
+\textbf{\refstepcounter{figure}\label{fig:02} Figure \arabic{figure}.}{The form for registration of application }
+\end{figure}
+
 \begin{itemize}
 \item Pending – It is a status for newly registered application before review. This application is not able to use the analytic methods.
 \item Rejected – The registered application is rejected by a reviewer.
@@ -192,13 +203,20 @@ As we mentioned before, we implemented the third-party sharing mechanism allowin
 
 Administrators are able to change a status of an application via administration of applications interface (Figure 3). Confirmed applications are able to integrate the analytic methods by implementation of a Web Services client. The EEG Data Processor serves as a Web Services server.
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{edp02}% This is an *.eps file
+\end{center}
+\textbf{\refstepcounter{figure}\label{fig:03} Figure \arabic{figure}.}{Administration of applications }
+\end{figure}
+
 \subsection{Integration with the EEG/ERP Portal}
 
 This section describes integration of the analytic methods provided by the EEG Data Processor into the EEG/ERP Portal. It mainly provides the technical information about used technology and the implementation of Web Services in the EEG Data Processor and the WS client in the EEG/ERP Portal. The EEG/ERP Portal is already registered in the Processor and confirmed.
 
 The EEG/ERP Portal has been developed by our research group \cite{Jezek10}. This portal enables research groups to store, manage and download their experimental data and metadata. The portal is developed as a standalone product running on servers in our department. The usage of the Portal does not require any special software installation, only a web browser.
 
-Apache CXF [14] is an open source services framework that makes web service development easy, simplified, and standard based. This technology is used for client-server based integration of web applications. The client application will prepare an order and send it to the EEG Data Processor through a business method call. For implementation we use code-first approach. It includes three following steps:
+Apache CXF \cite{CXF} is an open source services framework that makes web service development easy, simplified, and standard based. This technology is used for client-server based integration of web applications. The client application will prepare an order and send it to the EEG Data Processor through a business method call. For implementation we use code-first approach. It includes three following steps:
 
 \begin{itemize}
 \item Create a Service Endpoint Interface (SEI) and define a business method to be used with the web service.
@@ -261,7 +279,21 @@ password="***********" />
 
 When the client is configured, the interface shown above is available to use in the client application. In the EEG/ERP Portal, we use it as follows: The getAvailableMethods gets all available methods from the EEG Data Processor. Then a user selects method and data. The required parameters of the selected method are obtained by getMethodParameters method. When all parameters are filled, the method processData starts data processing.
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{portal01}% This is an *.eps file
+\end{center}
+\textbf{\refstepcounter{figure}\label{fig:04} Figure \arabic{figure}.}{Integration of methods into the EEG/ERP Portal }
+\end{figure}
+
 For users of the EEG/ERP Portal, we have prepared a web interface, where he/she select an experiment including data and chooses services option. The EEG/ERP Portal displays available methods and data (Figure 4). The next web page includes form where a user fills parameters of selected method. The Run button starts the processing. The EEG/ERP Portal waits for processing result on background, so a user can continue to work. When finished, the processing result is stored as XML file into the database for further using. A user can obtain results using Services Results button in Experiment section (Figure 5).
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{portal02}% This is an *.eps file
+\end{center}
+\textbf{\refstepcounter{figure}\label{fig:05} Figure \arabic{figure}.}{Services Results section }
+\end{figure}
 
 \section{Discussion}
 
@@ -271,7 +303,7 @@ We implemented our methods as web services via Web Services technology. Then we 
 
 Since the wsdl description file and also communication between client and server are based on XML language, the Web services technology brings the language independency. Methods and also the EEG Data Processor are implemented in the Java language; however, client applications can be implemented in different programming language.
 
-The main disadvantage of this approach is the necessity to modify the client application. Developers have to create the WS client and put it into the application. However, there are possibilities to generate the WS client automatically from the wsdl file. The widely used tools are wsdl2Java [], Web Services Description Language Tool for Java or C\#, or SOAPy for Python. When a client is implemented, it automatically reacts on changing (adding, editing, or removing) methods in the EEG Data Processor.
+The main disadvantage of this approach is the necessity to modify the client application. Developers have to create the WS client and put it into the application. However, there are possibilities to generate the WS client automatically from the wsdl file. The widely used tools are wsdl2Java \cite{WSDL2Java}, Web Services Description Language Tool for Java or C\#, or SOAPy for Python. When a client is implemented, it automatically reacts on changing (adding, editing, or removing) methods in the EEG Data Processor.
 
 We successfully integrated the methods from the EEG Data Processor into the EEG/ERP Portal. This integration allows us using the methods directly in the Portal. This integration is described in Section 3.3.
 
@@ -291,7 +323,7 @@ Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Tex
 
 %%% Upload the *bib file along with the *tex file and PDF on submission if the bibliography is not in the main *tex file
 
-\section*{Figures}
+%\section*{Figures}
 
 %%% Use this if adding the figures directly in the mansucript, if so, please remember to also upload the files when submitting your article
 %%% There is no need for adding the file termination, as long as you indicate where the file is saved. In the examples below the files (logo1.jpg and logo2.eps) are in the Frontiers LaTeX folder
