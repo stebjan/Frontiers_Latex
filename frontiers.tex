@@ -115,14 +115,14 @@ EEGLAB~\cite{Delorme04} and ERPLAB are MATLAB toolboxes for EEG and ERP (event r
 
 The software and hardware infrastructure developed by the German Neuroinformatics Node (G-Node)~\cite{Herz08, GNode} eases the acquisition, storage and analysis of experimental data. G-Node focuses on cellular and systems neurophysiology and provides various services and tools to facilitate data access and data management (Neuroshare \cite{Neuroshare} to HDF5 converter, etc.). They have been developing a~Rest API to enable easy access to shared data from different applications~\cite{Sobolev14}. The G-Node portal is open source; the source code including analytic tools is available on GitHub (https://github.com/G-Node).
 
-Taverna [] is an open source domain independent scientific workflow management application that allows designing, sharing and executing workflows. Taverna has been created by the myGrid project []. It allows users to integrate many different software component, including SOAP or Rest web services, or command tools. Taverna can access a large number of services in the fields of bioinformatics, astronomy, chemoinformatics, health informatics and others. A Suite of tools include: a Taverna Workbench (toolbox with GUI for local installation), Taverna Online web based tool for authoring workflows; Taverna Server and client that allows Taverna workflows to be run on other machines.
+Taverna [], created within the myGrid project, is an open source domain independent scientific workflow management application that allows designing, sharing and executing workflows. It allows users to integrate many different software components, including SOAP/REST web services, or command tools. Taverna can access a large number of services e.g. in bioinformatics, astronomy, chemoinformatics, or health informatics. A~set of available tools include Taverna Workbench (a~toolbox with GUI for local installation), Taverna Online web based tool for authoring workflows; Taverna Server and client that allow Taverna workflows to be run on other machines.
 
 \begin{table}[!t]
-\textbf{\refstepcounter{table}\label{Tab:01} Table \arabic{table}.}{ Summary of infrastructures and method providers }
+\textbf{\refstepcounter{table}\label{Tab:01} Table \arabic{table}.}{ Summary of software infrastructures and method providers }
 
 \processtable{ }
 {\begin{tabular}{lllll}\toprule
- & Type & Data Sharing & Sharing Methods & Integration to third parties \\\midrule
+ & Type & Data Sharing & Methods Sharing & Integration to third parties software infrastructures \\\midrule
 
 CARMEN & Web portal & YES & Via web portal & Contact owner\\\midrule
 Galaxy &  Web portal & YES & Via web portal & Not supported (enabled by used technology)\\\midrule
@@ -133,31 +133,26 @@ Taverna & Set of applications & NO & Download with applications & Not supported\
 \end{tabular}}{}
 \end{table}
 
-The overview in Table 1 shows ability to share methods to end users (using them via web portal or installing a stand-alone system including methods on a custom machine). However, it also shows lack of support for integration of methods in external applications developed by third parties. Therefore, we present such approach of sharing methods that supports the mentioned integration.
+The overview presented in Table 1 shows ability of the introduced frameworks and tools to share data and especially provide and share methods to end users (by using them via web portal or installing a stand-alone system containing methods locally). The table also shows lack of support for integration of the methods into external applications developed by third parties. Since such solution of methods sharing would be very helpful, we present this approach in the following text.
 
 \subsection{EEG Data Processor}
 
-EEG Data Processor \cite{Jezek13} is a custom system developed by ours research group that enables running of signal processing methods. We use the following methods for EEG/ERP signal analysis: Matching Pursuit \cite{Vareka12}, Discrete and Continuous Wavelet transform \cite{Ciniburk10}, FastICA \cite{Hyv01} and Fast Fourier transform \cite{FFT}. Since this system is a web based application, it does not need any installation, only web browser. It enables users upload and analyse data, then download results. The methods are stored locally in the file system of the server. Each method is a plug-in (a JAR file) and is called by an external method invoker. The source code of the EEG Data Processor and the analytic methods is open source and freely available to download from the SourceForge repository (https://sourceforge.net/projects/eegprocessor/). Note that the EEG Data Processor is not developed for storing data. It stores it only temporarily. The following paragraphs include technical information about the EEG Data Processor.
+EEG Data Processor~\cite{Jezek13} developed by our research group is a~web application for running EEG/ERP signal processing methods. It contains the following methods for EEG/ERP signal analysis: Matching Pursuit~\cite{Vareka12}, Discrete and Continuous Wavelet transform~\cite{Ciniburk10}, FastICA~\cite{Hyv01}, and Fast Fourier transform~\cite{FFT}. It enables users upload and analyse data, process them, and download the processing results. The input data are stored  only temporarily. Each method is a~plug-in (a~JAR file) that is called by an external method invoker. The open source code of the EEG Data Processor including the analytic methods is freely available at the SourceForge repository (https://sourceforge.net/projects/eegprocessor/).
 
-The system is a layered architecture. This architectural style is supported by used programming languages and technologies (Java, Maven, Spring, Hibernate, Apache CXF Web services etc.) \cite{Jezek13}.
+The system is designed as a~layered architecture. This architectural style is supported by used programming languages and technologies (Java, Maven, Spring, Hibernate, Apache CXF Web services etc.)~\cite{Jezek13}.
 
 \subsection{Third-Party Sharing Approach}
 
-The possibility to share analytic methods is important as well as possibility to share experimental data. Sharing of analytic methods improves the efficiency of scientific work. Scientists can use published tools e.g. EEGLab or use already implemented methods.
-
-In this paper, we present an extension of the EEG Data Processor that allows sharing analytic methods by third-party applications.
-The presented concept of sharing methods consists in registration of applications developed and run by third parties into the EEG Data Processor. When an application is registered and accepted by the administrator of the EEG Data Processor, the application is able to use methods provided by the Processor. Figure 1 shows the communication between the EEG Data Processor and a client application.
+The EEG Data Processor was extended to enable using its analytic methods directly by third-party applications. The concept consists in the registration of applications developed and run by third parties into the EEG Data Processor. When the application is registered and accepted by the administrator of the EEG Data Processor, it can use methods provided by the Processor. Figure 1 shows the communication between the EEG Data Processor and client application.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=18cm]{methods}% This is an *.eps file
 \end{center}
-\textbf{\refstepcounter{figure}\label{fig:01} Figure \arabic{figure}.}{Communication between applications }
+\textbf{\refstepcounter{figure}\label{fig:01} Figure \arabic{figure}.}{ Communication between applications. }
 \end{figure}
 
-The main idea of sharing the methods provided by the EEG Data Processor is to allow using them directly in other applications. This approach removes the necessity of manually data transfer from the data storage to the EEG Data Processor. Since the methods are available and runnable from client applications where data are stored, the data transfer is performed automatically. The proposed approach also solves the difficulties with downloading and updating methods. Since the methods are accessed remotely, there is no need to download or update them manually.
-
-This solution also provides an opportunity to call shared methods remotely from different applications independently of programming language. The type of a client application (web or desktop application) is also not relevant. For successful integration, the internet connection and the implemented client for remote methods call are required.
+This approach removes the necessity of manual data transfer from a~registered third-party application to the EEG Data Processor. Since the methods are available and runnable from the client application directly, the data transfer is performed automatically. The proposed approach also solves the difficulties with the maintenance of the analytic methods. This solution thus provides an opportunity to call shared methods remotely from different applications independently of programming language and type of the client application. For successful integration a~client for remote methods call has to be implemented.
 
 \section{Results}
 
